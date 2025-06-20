@@ -1,7 +1,7 @@
 
 ## 🎓 Student Information
-- **Name**: Chinni VeearvenkatasivanagarajuGovind
-- **Student ID**: 700771324
+- **Name**: Vishal Vusnagiri 
+- **Student ID**: 700763454
 - **Course**: Neural Network & Deep Learning
 
 
