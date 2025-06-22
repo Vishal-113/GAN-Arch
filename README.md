@@ -5,55 +5,109 @@
 - **Course**: Neural Network & Deep Learning
 
 
-1. GAN-Arch
-# Generative Adversarial Networks (GANs) - Adversarial Process
+## 📌 1. GAN Architecture
 
-## Overview
-Generative Adversarial Networks (GANs) operate through an adversarial process involving two neural networks: the **generator** and the **discriminator**. Their competition drives improvements in both models.
+### ✨ Explanation:
+In a **Generative Adversarial Network (GAN)**, two models—the **generator** and **discriminator**—compete in a minimax game:
+- **Generator (G)**: Learns to generate realistic fake data from random noise to "fool" the discriminator.
+- **Discriminator (D)**: Learns to distinguish between real (dataset) and fake (generated) samples.
 
-## Goals of Each Component
-### 1. Generator (G)
-- Takes random noise as input and generates synthetic data (e.g., images).
-- Aims to produce data that is indistinguishable from real data.
-- Improves by learning to fool the discriminator.
+Through this adversarial feedback loop:
+- G improves by minimizing the discriminator's ability to spot fakes.
+- D improves by correctly classifying real vs. fake data.
 
-### 2. Discriminator (D)
-- Acts as a binary classifier, distinguishing between real and generated data.
-- Trains to correctly classify real data as real and fake data as fake.
-- Improves by learning to detect the generator’s flaws.
+## ⚖️ 2. Ethics and AI Harm
 
-## Adversarial Training Process
-- The **discriminator** is trained on both real and fake data, adjusting its parameters to improve classification accuracy.
-- The **generator** is trained to minimize the discriminator’s ability to distinguish fake data from real data.
-- The training alternates between updating the discriminator and generator:
-  1. The discriminator trains while the generator remains fixed.
-  2. The generator trains while the discriminator remains fixed.
-- As training progresses, the generator produces increasingly realistic data, making it harder for the discriminator to differentiate.
-- 
-## Optimization Process
-- The generator tries to **maximize** the probability that the discriminator classifies its output as real.
-- The discriminator tries to **minimize** classification errors by correctly distinguishing real from fake data.
-- This adversarial process leads to a **MinMax optimization**, where the generator and discriminator continuously refine their abilities until the generator produces highly realistic data.
-2.# AI Harm: Representational Harm
+### Scenario: *Misinformation in Medical Chatbots*
 
-## Overview
-Representational harm occurs when AI systems reinforce stereotypes or misrepresent certain groups, leading to unfair portrayals and societal biases.
+An AI chatbot trained on outdated or biased health data might provide incorrect advice (e.g., recommending home remedies for severe conditions). This can result in real-world harm if users rely on it over professionals.
 
-## Hypothetical Application: AI-Powered Hiring Assistant
-An AI-powered hiring assistant may:
-- **Underrepresent certain groups** by favoring resumes that match biased historical hiring patterns.
-- **Reinforce stereotypes** by associating certain job roles with specific demographics.
+### ✅ Mitigation Strategies:
+1. **Human Oversight**: All critical responses should be reviewed by licensed professionals before public release.
+2. **Transparency**: Clearly label the chatbot as an AI assistant and not a substitute for professional medical advice.
 
-For example, if past successful software engineers were predominantly male, the AI might rank female candidates lower, even if equally qualified.
+---
 
-## Harm Mitigation Strategies
-1. **Bias Auditing and Diverse Training Data**
-   - Regularly audit the AI model for biases.
-   - Train the model on diverse datasets with balanced demographic representation.
+## 💻 3. Programming Task – Basic GAN (MNIST)
 
-2. **Human Oversight and Fairness Constraints**
-   - Implement human review processes to ensure fair AI-generated rankings.
-   - Apply fairness constraints to prevent discriminatory patterns.
+### ✅ Libraries Used:
+- PyTorch
+- torchvision
+- matplotlib
+
+### 🧱 Architecture:
+- Generator: Fully connected layers with ReLU + Tanh
+- Discriminator: Fully connected layers with LeakyReLU + Sigmoid
+
+### 🔁 Training:
+- Trained for 100 epochs
+- Generator and Discriminator loss monitored
+
+### 📊 Loss Plots:
+
+![Loss Plot](images/gan_loss_plot.png)
+
+### 🖼️ Sample Outputs:
+- Epoch 0: `images/sample_epoch_0.png`  
+- Epoch 50: `images/sample_epoch_50.png`  
+- Epoch 100: `images/sample_epoch_100.png`
+
+---
+
+## 🧪 4. Programming Task – Data Poisoning Simulation
+
+### 📘 Task:
+Trained a sentiment analysis classifier on IMDB/Movie Reviews dataset. Injected poisoned data by flipping sentiment of reviews mentioning "UC Berkeley."
+
+### 🔁 Classifier: Logistic Regression using TF-IDF features.
+
+### 📊 Before Poisoning:
+- Accuracy: 89%
+- Confusion Matrix:
+
+![Before](images/confusion_before.png)
+
+### 📊 After Poisoning:
+- Accuracy: 74%
+- Confusion Matrix:
+
+![After](images/confusion_after.png)
+
+### ⚠️ Observations:
+- Sharp drop in precision for "positive" class.
+- Increased misclassification of targeted reviews.
+
+---
+
+## ⚖️ 5. Legal & Ethical Implications of GenAI
+
+### ⚠️ Issue 1: Memorizing Private Data
+- **Legal**: Violates GDPR/CCPA by storing identifiable info.
+- **Ethical**: Undermines consent and privacy norms.
+
+### ⚠️ Issue 2: Generating Copyrighted Content
+- **Legal**: Breaches U.S. Copyright Law.
+- **Ethical**: Disrespects original creator rights and royalties.
+
+### ✅ Conclusion:
+**Yes**, generative models should avoid training on sensitive or copyrighted data. Respecting privacy and IP laws fosters trust, compliance, and innovation.
+
+---
+
+## 📈 6. Bias & Fairness Tools – Aequitas
+
+### 🔍 Metric: False Negative Rate (FNR) Parity
+
+#### What it Measures:
+Ensures different groups (e.g., gender, race) have equal false negatives.
+
+#### Why It Matters:
+In domains like healthcare or hiring, high false negatives for a group mean missed opportunities or diagnoses.
+
+#### How Models Fail:
+- Poor representation in training data
+- Historical bias (e.g., biased hiring records)
+
 
 
 
