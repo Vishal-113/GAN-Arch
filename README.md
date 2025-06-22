@@ -18,13 +18,10 @@ Through this adversarial feedback loop:
 
 ## ⚖️ 2. Ethics and AI Harm
 
-### Scenario: *Misinformation in Medical Chatbots*
+### Scenario: *REPRESENTATIONAL HARM*
 
-An AI chatbot trained on outdated or biased health data might provide incorrect advice (e.g., recommending home remedies for severe conditions). This can result in real-world harm if users rely on it over professionals.
+A common example of **representational harm** occurs in facial recognition systems that perform poorly on darker-skinned individuals, especially women. These systems often misidentify or fail to recognize people from marginalized groups because the training data lacks diversity. One mitigation strategy is to ensure datasets are balanced and inclusive across race, gender, and other identities. Another is to conduct regular audits for bias and involve diverse stakeholders in the design and evaluation process.
 
-### ✅ Mitigation Strategies:
-1. **Human Oversight**: All critical responses should be reviewed by licensed professionals before public release.
-2. **Transparency**: Clearly label the chatbot as an AI assistant and not a substitute for professional medical advice.
 
 ---
 
